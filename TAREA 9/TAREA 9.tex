@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{luis martin santoyo mujica}
+\title{TAREA 9}
+\begin{document}
+
+calculo de parámetros de circuitos de activación de transistores de potencia:
+
+El funcionamiento y utilización de los transistores de potencia es idéntico al de los transistores normales, teniendo como características especiales las altas tensiones e intensidades que tienen que soportar y, por tanto, las altas potencias a disipar.
+Existen tres tipos de transistores de potencia:
+?	bipolar.
+?	unipolar o FET (Transistor de Efecto de Campo).
+?	IGBT.
+ 
+
+Cuando el transistor está en saturación o en corte las pérdidas son despreciables. Pero si tenemos en cuenta los efectos de retardo de conmutación, al cambiar de un estado a otro se produce un pico de potencia disipada, ya que en esos instantes el producto IC x VCE va a tener un valor apreciable, por lo que la potencia media de pérdidas en el transistor va a ser mayor. Estas pérdidas aumentan con la frecuencia de trabajo, debido a que al aumentar ésta, también lo hace el número de veces que se produce el paso de un estado a otro.
+Podremos distinguir entre tiempo de excitación o encendido (ton) y tiempo de apagado (toff). A su vez, cada uno de estos tiempos se puede dividir en otros dos.
+Tiempo de retardo (Delay Time, td): Es el tiempo que transcurre desde el instante en que se aplica la señal de entrada en el dispositivo conmutador, hasta que la señal de salida alcanza el 10% de su valor final.
+Tiempo de subida (Rise time, tr): Tiempo que emplea la señal de salida en evolucionar entre el 10% y el 90% de su valor final.
+Tiempo de almacenamiento (Storage time, ts): Tiempo que transcurre desde que se quita la excitación de entrada y el instante en que la señal de salida baja al 90% de su valor final.
+Tiempo de caída (Fall time, tf): Tiempo que emplea la señal de salida en evolucionar entre el 90% y el 10% de su valor final.
+Por tanto, se pueden definir las siguientes relaciones :
+ 
+
+ 
+
+Es de hacer notar el hecho de que el tiempo de apagado (toff) será siempre mayor que el tiempo de encendido (ton).
+Los tiempos de encendido (ton) y apagado (toff) limitan la frecuencia máxima a la cual puede conmutar el transistor:
+ 
+
+ 
+
+Corriente media: es el valor medio de la corriente que puede circular por un terminal (ej. ICAV, corriente media por el colector).
+Corriente máxima: es la máxima corriente admisible de colector (ICM) o de drenador (IDM). Con este valor se determina la máxima disipación de potencia del dispositivo.
+VCBO: tensión entre los terminales colector y base cuando el emisor está en circuito abierto. 
+VEBO: tensión entre los terminales emisor y base con el colector en circuito abierto.
+Tensión máxima: es la máxima tensión aplicable entre dos terminales del dispositivo (colector y emisor con la base abierta en los bipolares, drenador y fuente en los FET).
+Estado de saturación: queda determinado por una caída de tensión prácticamente constante. VCEsat entre colector y emisor en el bipolar y resistencia de conducción RDSon en el FET. Este valor, junto con el de corriente máxima, determina la potencia máxima de disipación en saturación.
+Relación corriente de salida - control de entrada: hFE para el transistor bipolar (ganancia estática de corriente) y gds para el FET (transconductancia en directa)
+
+Existen cuatro condiciones de polarización posibles. Dependiendo del sentido o signo de los voltajes de polarización en cada una de las uniones del transistor pueden ser :
+ 
+
+
+?	Región activa directa: Corresponde a una polarización directa de la unión emisor - base y a una polarización inversa de la unión colector - base. Esta es la región de operación normal del transistor para amplificación.
+ 
+?	Región activa inversa: Corresponde a una polarización inversa de la unión emisor - base y a una polarización directa de la unión colector - base. Esta región es usada raramente.
+ 
+?	Región de corte: Corresponde a una polarización inversa de ambas uniones. La operación en ésta región corresponde a aplicaciones de conmutación en el modo apagado, pues el transistor actúa como un interruptor abierto (IC 0).
+ 
+?	Región de saturación: Corresponde a una polarización directa de ambas uniones. La operación en esta región corresponde a aplicaciones de conmutación en el modo encendido, pues el transistor actúa como un interruptor cerrado (VCE 0).
+Volver
+Avalancha secundaria. Curvas SOA.
+ 
+
+Si se sobrepasa la máxima tensión permitida entre colector y base con el emisor abierto (VCBO), o la tensión máxima permitida entre colector y emisor con la base abierta (VCEO), la unión colector - base polarizada en inverso entra en un proceso de ruptura similar al de cualquier diodo, denominado avalancha primaria.
+Sin embargo, puede darse un caso de avalancha cuando estemos trabajando con tensiones por debajo de los límites anteriores debido a la aparición de puntos calientes (focalización de la intensidad de base), que se produce cuando tenemos polarizada la unión base - emisor en directo. En efecto, con dicha polarización se crea un campo magnético transversal en la zona de base que reduce el paso de portadores minoritarios a una pequeña zona del dispositivo (anillo circular).La densidad de potencia que se concentra en dicha zona es proporcional al grado de polarización de la base, a la corriente de colector y a la VCE, y alcanzando cierto valor, se produce en los puntos calientes un fenómeno degenerativo con el consiguiente aumento de las pérdidas y de la temperatura. A este fenómeno, con efectos catastróficos en la mayor parte de los casos, se le conoce con el nombre de avalancha secundaria (o también segunda ruptura).
+El efecto que produce la avalancha secundaria sobre las curvas de salida del transistor es producir unos codos bruscos que desvían la curva de la situación prevista (ver gráfica anterior).
+El transistor puede funcionar por encima de la zona límite de la avalancha secundaria durante cortos intervalos de tiempo sin que se destruya. Para ello el fabricante suministra unas curvas límites en la zona activa con los tiempos límites de trabajo, conocidas como curvas FBSOA.
+ 
+
+Podemos ver como existe una curva para corriente continua y una serie de curvas para corriente pulsante, cada una de las cuales es para un ciclo concreto.
+Todo lo descrito anteriormente se produce para el ton del dispositivo. Durante el toff, con polarización inversa de la unión base - emisor se produce la focalización de la corriente en el centro de la pastilla de Si, en un área más pequeña que en polarización directa, por lo que la avalancha puede producirse con niveles más bajos de energía. Los límites de IC y VCE durante el toff vienen reflejado en las curvas RBSOA dadas por el fabricante.
+Las cargas inductivas someten a los transistores a las condiciones de trabajo más desfavorables dentro de la zona activa.
+ 
+
+En el diagrama superior se han representado los diferentes puntos idealizados de funcionamiento del transistor en corte y saturación. Para una carga resistiva, el transistor pasará de corte a saturación. Para una carga resistiva, el transistor pasará de corte a saturación por la recta que va desde A hasta C, y de saturación a corte desde C a A. Sin embargo, con una carga inductiva como en el circuito anterior el transistor pasa a saturación recorriendo la curva ABC, mientras que el paso a corte lo hace por el tramo CDA. Puede verse que este último paso lo hace después de una profunda incursión en la zona activa que podría fácilmente sobrepasar el límite de avalancha secundaria, con valor VCE muy superior al valor de la fuente (Vcc).
+Para proteger al transistor y evitar su degradación se utilizan en la práctica varios circuitos, que se muestran a continuación :
+ 
+
+a) Diodo Zéner en paralelo con el transistor (la tensión nominal zéner ha de ser superior a la tensión de la fuente Vcc).
+b) Diodo en antiparalelo con la carga RL.
+c) Red RC polarizada en paralelo con el transistor (red snubber).
+Las dos primeras limitan la tensión en el transistor durante el paso de saturación a corte, proporcionando a través de los diodos un camino para la circulación de la intensidad inductiva de la carga.
+En la tercera protección, al cortarse el transistor la intensidad inductiva sigue pasando por el diodo y por el condensador CS, el cual tiende a cargarse a una tensión Vcc. Diseñando adecuadamente la red RC se consigue que la tensión en el transistor durante la conmutación sea inferior a la de la fuente, alejándose su funcionamiento de los límites por disipación y por avalancha secundaria. Cuando el transistor pasa a saturación el condensador se descarga a través de RS.
+ 
+
+El efecto producido al incorporar la red snubber es la que se puede apreciar en la figura adjunta, donde vemos que con esta red, el paso de saturación (punto A) a corte (punto B) se produce de forma más directa y sin alcanzar valores de VCE superiores a la fuente Vcc.
+Para el cálculo de CS podemos suponer, despreciando las pérdidas, que la energía almacenada en la bobina L antes del bloqueo debe haberse transferido a CS cuando la intensidad de colector se anule. Por tanto :
+ 
+
+de donde :
+ 
+
+Para calcular el valor de RS hemos de tener en cuenta que el condensador ha de estar descargado totalmente en el siguiente proceso de bloqueo, por lo que la constante de tiempo de RS y CS ha de ser menor (por ejemplo una quinta parte) que el tiempo que permanece en saturación el transistor:
+ 
+
+Cálculo de potencias disipadas en conmutación con carga resistiva
+ 
+
+La gráfica superior muestra las señales idealizadas de los tiempos de conmutación (ton y toff) para el caso de una carga resistiva.
+Supongamos el momento origen en el comienzo del tiempo de subida (tr) de la corriente de colector. En estas condiciones (0 t tr) tendremos :
+ 
+
+donde IC más vale :
+ 
+
+También tenemos que la tensión colector - emisor viene dada como :
+ 
+
+Sustituyendo, tendremos que :
+ 
+
+Nosotros asumiremos que la VCE en saturación es despreciable en comparación con Vcc.
+Así, la potencia instantánea por el transistor durante este intervalo viene dada por :
+ 
+
+La energía, Wr, disipada en el transistor durante el tiempo de subida está dada por la integral de la potencia durante el intervalo del tiempo de caída, con el resultado:
+ 
+
+De forma similar, la energía (Wf) disipada en el transistor durante el tiempo de caída, viene dado como:
+ 
+
+La potencia media resultante dependerá de la frecuencia con que se efectúe la conmutación:
+ 
+
+Un último paso es considerar tr despreciable frente a tf, con lo que no cometeríamos un error apreciable si finalmente dejamos la potencia media, tras sustituir, como:
+ 
+
+Ataque y protección del transistor de potencia
+Como hemos visto anteriormente, los tiempos de conmutación limitan el funcionamiento del transistor, por lo que nos interesaría reducir su efecto en la medida de lo posible.
+ 
+
+Los tiempos de conmutación pueden ser reducidos mediante una modificación en la señal de base, tal y como se muestra en la figura anterior.
+Puede verse como el semiciclo positivo está formado por un tramo de mayor amplitud que ayude al transistor a pasar a saturación (y por tanto reduce el ton) y uno de amplitud suficiente para mantener saturado el transistor (de este modo la potencia disipada no será excesiva y el tiempo de almacenamiento no aumentará). El otro semiciclo comienza con un valor negativo que disminuye el toff, y una vez que el transistor está en corte, se hace cero para evitar pérdidas de potencia.
+En consecuencia, si queremos que un transistor que actúa en conmutación lo haga lo más rápidamente posible y con menores pérdidas, lo ideal sería atacar la base del dispositivo con una señal como el de la figura anterior. Para esto se puede emplear el circuito de la figura siguiente.
+ 
+
+En estas condiciones, la intensidad de base aplicada tendrá la forma indicada a continuación:
+ 
+
+Durante el semiperiodo t1, la tensión de entrada (Ve) se mantiene a un valor Ve (máx). En estas condiciones la VBE es de unos 0.7 v y el condensador C se carga a una tensión VC de valor:
+ 
+
+debido a que las resistencias R1 y R2 actúan como un divisor de tensión.
+La cte. de tiempo con que se cargará el condensador será aproximadamente de:
+ 
+
+Con el condensador ya cargado a VC, la intensidad de base se estabiliza a un valor IB que vale:
+ 
+
+En el instante en que la tensión de entrada pasa a valer -Ve(min), tenemos el condensador cargado a VC, y la VBE=0.7 v. Ambos valores se suman a la tensión de entrada, lo que produce el pico negativo de intensidad IB (mín):
+ 
+
+A partir de ese instante el condensador se descarga a través de R2 con una constante de tiempo de valor R2C.
+Para que todo lo anterior sea realmente efectivo, debe cumplirse que:
+ 
+
+con esto nos aseguramos que el condensador está cargado cuando apliquemos la señal negativa. Así, obtendremos finalmente una frecuencia máxima de funcionamiento:
+ 
+
+Un circuito más serio es el de Control Antisaturación:
+ 
+
+El tiempo de saturación (tS)será proporcional a la intensidad de base, y mediante una suave saturación lograremos reducir tS :
+ 
+
+Inicialmente tenemos que:
+ 
+
+En estas condiciones conduce D2, con lo que la intensidad de colector pasa a tener un valor:
+ 
+
+Si imponemos como condición que la tensión de codo del diodo D1 es mayor que la del diodo D2, obtendremos que IC sea mayor que IL:
+ 
+
+\end{document}
